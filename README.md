@@ -1,28 +1,40 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-	<title>暴兵</title>
+# bignameNet_web
+**1小时就能搭建这么简约漂亮的个人网站（Bootstrap）**
 
-	<!-- Bootstrap -->
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="css/index.css">
+各位客官留下你的小星星☆，star一下！我前进的动力。
 
-	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-      <![endif]-->
-  </head>
-  <body>
+有一个搭建自己个人网站的想法，把自己的一些技术文章、日记、创业想法等等统统寄托在这里。
+后台前端统统来一套！
+**首先是前端！**
+先上这个长得好看的效果图。
+![这里写图片描述](http://img.blog.csdn.net/20180203160518553?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYmlnbmFtZTIy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+###概述
+目前为只完成了该页面的UI开发，暂时没有实现与后台交互的功能。现在在学习ssm框架的搭建，争取过年前搞定后台的基本接口。然后把这个页面的登录、技术文章、随手记与后台交互的功能完成了。
 
-  	<!-- 右下角按钮 -->
-  	<!-- <button class="btn btn-default btn_right_bottom">写</button> -->
-  	<!-- 图片轮播 -->
+**希望各位可以去我的github地址添个小星星☆，最新的额代码会更新在这，哈哈。**
+
+[CSDN博客地址](https://github.com/bigname22/bignameNet_web)
+
+###文章
+文章也会分名为**BG前端**，**BG后端**两个板块，专门用于记录该项目的问题；按进度更新文章。
+
+###苦水
+一个Android开发者，搞这些有点吃力，不过很开心，把工作推到年后，现在可以安安心心学习一下，搞下自己想做的东西！
+首先要入手的便是用了1天的时间学习bootstrap的使用，第二天便实践。
+
+##实践开始
+####**1.准备Jq、BootStrap的所需要的材料**
+![这里写图片描述](http://img.blog.csdn.net/20180203153413173?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYmlnbmFtZTIy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+####**2.创建index.html引进jq、bootstrap文件**
+![这里写图片描述](http://img.blog.csdn.net/20180203153639838?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYmlnbmFtZTIy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![这里写图片描述](http://img.blog.csdn.net/20180203153656678?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYmlnbmFtZTIy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+####**3.实现**
+![这里写图片描述](http://img.blog.csdn.net/20180203155300820?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYmlnbmFtZTIy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+#####**3.1轮播图：**
+代码主要参照bootstrap官网提供的示例，html代码按排班分段给出、css、js代码最后一起贴出
+```
+<!-- 图片轮播 -->
+	<!-- 圆点 -->
   	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
   		<!-- Indicators -->
   		<ol class="carousel-indicators">
@@ -34,7 +46,7 @@
   			<li data-target="#carousel-example-generic" data-slide-to="5"></li>
   		</ol>
 
-  		<!-- Wrapper for slides -->
+  		<!-- 内容 -->
   		<div class="carousel-inner" role="listbox">
   			<div class="item active">
   				<img src="img/ic_p4.jpg">
@@ -74,7 +86,7 @@
   			</div>
   		</div>
 
-  		<!-- Controls -->
+  		<!-- 切换按钮 -->
   		<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
   			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
   			<span class="sr-only">Previous</span>
@@ -84,7 +96,14 @@
   			<span class="sr-only">Next</span>
   		</a>
   	</div>
-  	<!-- 功能模块 -->
+```
+#####**3.2大功能块**
+店铺：放为了放我今年计划开淘宝店商品的目录，以及我喜欢的一些物品的连接。
+纪念馆：放一些阶段性的具有意义的文章、照片等
+私人角落：放日记、技术文章等
+
+```
+<!-- 功能模块 -->
   	<div class="row div_function">
   		<div class="col-xs-4">
   			<div class="panel panel-default" id="pFunc1">
@@ -111,7 +130,12 @@
   			</div>
   		</div>
   	</div>
-  	<!-- 技术日记 -->
+```
+#####**3.3技术世界**
+这里是展示自己的技术文章，使用bootstrap列表样式
+
+```
+<!-- 技术日记 -->
   	<div class="container div_divider">
   		<!-- 分割线 -->
   		<hr class="hr_1">Bigname Technology World !<hr class="hr_2">
@@ -214,7 +238,11 @@
   					</div>
   				</div>
   			</div>
-  			<!-- 右侧 -->
+```
+#####**3.4个人标签、随手记心情**
+
+```
+<!-- 右侧 -->
   			<div class="col-xs-3 div_record">
   				<!-- 用户信息 -->
   				<div class="jumbotron div_userinfo">
@@ -249,7 +277,12 @@
   				</div>
   			</div>
   		</div>
-  		<!-- 登录模态框 -->
+```
+#####**3.5登录模态框**
+![这里写图片描述](http://img.blog.csdn.net/20180203155616303?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYmlnbmFtZTIy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+
+```
+<!-- 登录模态框 -->
   		<div class="modal fade bs-example-modal-sm" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
   			<div class="modal-dialog modal-sm" role="document">
   				<div class="modal-content">
@@ -272,14 +305,7 @@
   				</div>
   			</div>
   		</div>
-  	</div>
+```
 
-
-  	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  	<script src="js/jquery-3.3.1.min.js"></script>
-  	<!-- Include all compiled plugins (below), or include individual files as needed -->
-  	<script src="js/bootstrap.min.js"></script>
-  	<script src="js/init.js" type="text/script"></script>
-  	<script src="js/util.js"></script>
-  </body>
-  </html>
+各个效果的代码如上，多看bootstrap官网！没有完成不了的事。同时说一下，jq也是第一次用，庆幸没出现什么问题，这么简单也不应该出现什么问题。~~~~(>_<)~~~~
+在接触前端的时候，是粗暴的学习了一个月的html+css+js，然后学习Vue、Ionic框架的，所以这些解除有点晚了，还倒过来学了，哈哈。不过不影响。
