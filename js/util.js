@@ -2,7 +2,7 @@
 var MyUtil = {};
 (function (){
 	MyUtil.MainColor_Bla = "#34374C";
-	MyUtil.MainColor_Black = "#2C2E3E";
+	MyUtil.MainColor_Black = "#F0F8FF";
 	MyUtil.MainColor_Red = "#EE2B47";
 	/* 
 	当鼠标移动到功能块面板时：
@@ -23,7 +23,7 @@ var MyUtil = {};
 	var pFuncArr = [$("#pFunc1"),$("#pFunc2"),$("#pFunc3")]
 	for (let i =0; i <  pFuncArr.length; i++) {
 		pFuncArr[i].mouseover(function () {
-			MyUtil.setFunctionsTvColor(pFuncArr[i],"#fff");
+			// MyUtil.setFunctionsTvColor(pFuncArr[i],"#fff");
 			MyUtil.setFunctionsBgColor(pFuncArr[i],MyUtil.MainColor_Black);
 		});
 
