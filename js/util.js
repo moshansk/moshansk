@@ -17,7 +17,7 @@ var MyUtil = {};
 	};
 
 	//************************ 初始化代码************
-	var mColorArr = [MyUtil.MainColor_Bla,  MyUtil.MainColor_Black, "#DB9019", "#5Ed5d1", "#ff6e97",  "#f1aaa6"]
+	var mColorArr = [MyUtil.MainColor_Bla,  MyUtil.MainColor_Black, "#DB9019", "#5Ed5d1", "##ff6e97",  "#f1aaa6"]
 
 	/* 设置三个功能块按钮鼠标滑过样式 */
 	var pFuncArr = [$("#pFunc1"),$("#pFunc2"),$("#pFunc3")]
@@ -34,13 +34,21 @@ var MyUtil = {};
 	}
 
 	/* 设置小功能按钮初始颜色（随机）*/
-	var pLittleFuncArr = [$(".btn_login"), $(".btn_stay"),  $(".btn_write")]
-	for (let i = 0; i < pLittleFuncArr.length; i++) {
-		let btnItem = pLittleFuncArr[i];
-		let colorIndex = parseInt(Math.random()*6)
-		btnItem.css("color", mColorArr[colorIndex]);
-		btnItem.css("border-color", mColorArr[colorIndex]);
-	}
+	// var pLittleFuncArr = [$(".btn_login"), $(".btn_stay"),  $(".btn_write")]
+	$(".btn_login").css("color", "#DB9019")
+	$(".btn_login").css("border-color", "#DB9019");
+	
+	$(".btn_stay").css("color", "#ff6e97")
+	$(".btn_stay").css("border-color", "#ff6e97");
+
+	$(".btn_write").css("color", "#5Ed5d1")
+	$(".btn_write").css("border-color", "#5Ed5d1");
+	// for (let i = 0; i < pLittleFuncArr.length; i++) {
+	// 	let btnItem = pLittleFuncArr[i];
+	// 	let colorIndex = parseInt(Math.random()*6)
+	// 	btnItem.css("color", mColorArr[colorIndex]);
+	// 	btnItem.css("border-color", mColorArr[colorIndex]);
+	// }
 	
 
 })();
