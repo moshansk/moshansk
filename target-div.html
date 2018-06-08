@@ -15,18 +15,22 @@
     <script>
         let preEle = undefined;
         function test(ele) {
-            $('#cccc').text(ele[0].value);
+            $('#cccc').text(`${ele[0].value}(${ele.parentElement.children[0].innerText})`);
             $('#cccc').attr('data-clipboard-text', ele[0].value);
             $('#cccc').click();
         }
         function tt(ele) {
             const copyText = ele.innerText;
-            ele.style.color = "#FF0000"
+            const td = ele.parentElement.children[0];
             if (preEle) {
                 preEle.style.color = '#000000';
+                preEle.parentElement.children[0].style.color = '#000000';
             }
+            ele.style.color = "#FF0000"
+            td.style.color = "#FF0000"
+            // td.style.cssText = "background-color:red;cursor:pointer"
             preEle = ele;
-            $('#cccc').text(copyText);
+            $('#cccc').text(`${copyText}(${td.innerText})`);
             $('#cccc').attr('data-clipboard-text', copyText);
             $('#cccc').click();
         }
@@ -38,6 +42,17 @@
             clipboard.on('error', function (e) {
                 console.log(e);
             });
+            $('#wo').click(function () {
+                const ele = this.parentElement.children[1]
+                tt(ele);
+            })
+            $('tr td:first-child').click(function () {
+                const ele = this.parentElement.children[1]
+                tt(ele);
+            })
+            $('tr td:last-child').click(function () {
+                tt(this);
+            })
         })
     </script>
 </head>
@@ -64,9 +79,9 @@
             <a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">妈分享</a>
         </li>
         <li role="presentation">
-                <a href="#yanyan" aria-controls="yanyan" role="tab" data-toggle="tab">岩</a>
-            </li>
-        
+            <a href="#yanyan" aria-controls="yanyan" role="tab" data-toggle="tab">岩</a>
+        </li>
+
     </ul>
     <div class="tab-content">
         <!--active当前选中项-->
@@ -75,96 +90,96 @@
                 <div class="col-sm-12">
                     <table>
                         <tr>
-                            <td> 丽娟</td>
-                            <td onclick="tt(this)">13525277514</td>
+                            <td id="wo"> 丽娟</td>
+                            <td   >13525277514</td>
                         </tr>
                         <tr>
                             <td> 冉冉</td>
-                            <td onclick="tt(this)">13030317613</td>
+                            <td   >13030317613</td>
                         </tr>
                         <tr>
                             <td> 刘源妈</td>
-                            <td onclick="tt(this)">18013959550</td>
+                            <td   >18013959550</td>
                         </tr>
                         <tr>
                             <td> 秀娟姨</td>
-                            <td onclick="tt(this)">15539392256</td>
+                            <td   >15539392256</td>
                         </tr>
                         <tr>
                             <td> 姨</td>
-                            <td onclick="tt(this)">13938329157</td>
+                            <td   >13938329157</td>
                         </tr>
                         <tr>
                             <td> 杜菲</td>
-                            <td onclick="tt(this)">15903993802</td>
+                            <td   >15903993802</td>
                         </tr>
                         <tr>
                             <td> 龚海林</td>
-                            <td onclick="tt(this)">13333605971</td>
+                            <td   >13333605971</td>
                         </tr>
                         <tr>
                             <td> 仝超</td>
-                            <td onclick="tt(this)">15838116255</td>
+                            <td   >15838116255</td>
                         </tr>
                         <tr>
                             <td> 杨邵举</td>
-                            <td onclick="tt(this)">15637190302</td>
+                            <td   >15637190302</td>
                         </tr>
                         <tr>
                             <td> 胡亚彬</td>
-                            <td onclick="tt(this)">17719991802</td>
+                            <td   >17719991802</td>
                         </tr>
                         <tr>
                             <td> 华秀杰</td>
-                            <td onclick="tt(this)">13592645270</td>
+                            <td   >13592645270</td>
                         </tr>
                         <tr>
                             <td> 和孟光</td>
-                            <td onclick="tt(this)">18569917997</td>
+                            <td   >18569917997</td>
                         </tr>
                         <tr>
                             <td> 张光辉</td>
-                            <td onclick="tt(this)">13938402159</td>
+                            <td   >13938402159</td>
                         </tr>
                         <tr>
                             <td> 朱强</td>
-                            <td onclick="tt(this)">18838080479</td>
+                            <td   >18838080479</td>
                         </tr>
                         <tr>
                             <td> 姨夫</td>
-                            <td onclick="tt(this)">13938315133</td>
+                            <td   >13938315133</td>
                         </tr>
                         <tr>
                             <td> 138刘源</td>
-                            <td onclick="tt(this)">13851666159</td>
+                            <td   >13851666159</td>
                         </tr>
                         <tr>
                             <td> 186刘源</td>
-                            <td onclick="tt(this)">18651605436</td>
+                            <td   >18651605436</td>
                         </tr>
                         <tr>
                             <td> 丙茹186</td>
-                            <td onclick="tt(this)">18618309175</td>
+                            <td   >18618309175</td>
                         </tr>
                         <tr>
                             <td> 丙茹181</td>
-                            <td onclick="tt(this)">18101020737</td>
+                            <td   >18101020737</td>
                         </tr>
                         <tr>
                             <td> 爸爸</td>
-                            <td onclick="tt(this)">13939350159</td>
+                            <td   >13939350159</td>
                         </tr>
                         <tr>
                             <td> 奶奶</td>
-                            <td onclick="tt(this)">13721715845</td>
+                            <td   >13721715845</td>
                         </tr>
                         <tr>
                             <td> 二姐</td>
-                            <td onclick="tt(this)">13718890649</td>
+                            <td   >13718890649</td>
                         </tr>
                         <tr>
                             <td> 孙凯</td>
-                            <td onclick="tt(this)">15378726052</td>
+                            <td   >15378726052</td>
                         </tr>
                     </table>
                 </div>
@@ -176,115 +191,115 @@
                     <table>
                         <tr>
                             <td> 林林</td>
-                            <td onclick="tt(this)">15050200563</td>
+                            <td   >15050200563</td>
                         </tr>
                         <tr>
                             <td> 林林</td>
-                            <td onclick="tt(this)">15303931273</td>
+                            <td   >15303931273</td>
                         </tr>
                         <tr>
                             <td> 三妗子</td>
-                            <td onclick="tt(this)">13343633336</td>
+                            <td   >13343633336</td>
                         </tr>
                         <tr>
                             <td> 三舅</td>
-                            <td onclick="tt(this)">18939338288</td>
+                            <td   >18939338288</td>
                         </tr>
                         <tr>
                             <td> 四妗子</td>
-                            <td onclick="tt(this)">15239960119</td>
+                            <td   >15239960119</td>
                         </tr>
                         <tr>
                             <td> 洋洋</td>
-                            <td onclick="tt(this)">15518578995</td>
+                            <td   >15518578995</td>
                         </tr>
                         <tr>
                             <td> 学光</td>
-                            <td onclick="tt(this)">18135732188</td>
+                            <td   >18135732188</td>
                         </tr>
                         <tr>
                             <td> 学光</td>
-                            <td onclick="tt(this)">18837174189</td>
+                            <td   >18837174189</td>
                         </tr>
                         <tr>
                             <td> 丽萍姨</td>
-                            <td onclick="tt(this)">13707671022</td>
+                            <td   >13707671022</td>
                         </tr>
                         <tr>
                             <td> 艳艳</td>
-                            <td onclick="tt(this)">17803846278</td>
+                            <td   >17803846278</td>
                         </tr>
                         <tr>
                             <td> 德民大</td>
-                            <td onclick="tt(this)">15936708815</td>
+                            <td   >15936708815</td>
                         </tr>
                         <tr>
                             <td> 德民大</td>
-                            <td onclick="tt(this)">18339321860</td>
+                            <td   >18339321860</td>
                         </tr>
                         <tr>
                             <td> 娟娟</td>
-                            <td onclick="tt(this)">18137245399</td>
+                            <td   >18137245399</td>
                         </tr>
                         <tr>
                             <td> 灰灰</td>
-                            <td onclick="tt(this)">18137245309</td>
+                            <td   >18137245309</td>
                         </tr>
                         <tr>
                             <td> 美格</td>
-                            <td onclick="tt(this)">15239392754</td>
+                            <td   >15239392754</td>
                         </tr>
                         <tr>
                             <td> 爱珠婶</td>
-                            <td onclick="tt(this)">15936702868</td>
+                            <td   >15936702868</td>
                         </tr>
                         <tr>
                             <td> 冠西叔</td>
-                            <td onclick="tt(this)">13839372107</td>
+                            <td   >13839372107</td>
                         </tr>
                         <tr>
                             <td> 阳阳</td>
-                            <td onclick="tt(this)">18307557251</td>
+                            <td   >18307557251</td>
                         </tr>
                         <tr>
                             <td> 建红舅</td>
-                            <td onclick="tt(this)">13193970861</td>
+                            <td   >13193970861</td>
                         </tr>
                         <tr>
                             <td> 姨姥爷</td>
-                            <td onclick="tt(this)">13253982524</td>
+                            <td   >13253982524</td>
                         </tr>
                         <tr>
                             <td> 姨姥娘</td>
-                            <td onclick="tt(this)">13639886960</td>
+                            <td   >13639886960</td>
                         </tr>
                         <tr>
                             <td> 计生</td>
-                            <td onclick="tt(this)">15893244927</td>
+                            <td   >15893244927</td>
                         </tr>
                         <tr>
                             <td> 艳敏姐</td>
-                            <td onclick="tt(this)">15890488001</td>
+                            <td   >15890488001</td>
                         </tr>
                         <tr>
                             <td> 艳敏姐</td>
-                            <td onclick="tt(this)">17163935260</td>
+                            <td   >17163935260</td>
                         </tr>
                         <tr>
                             <td> 姑父</td>
-                            <td onclick="tt(this)">15939369508</td>
+                            <td   >15939369508</td>
                         </tr>
                         <tr>
                             <td> 现力</td>
-                            <td onclick="tt(this)">18802616546</td>
+                            <td   >18802616546</td>
                         </tr>
                         <tr>
                             <td> 罗春</td>
-                            <td onclick="tt(this)">15286901987</td>
+                            <td   >15286901987</td>
                         </tr>
                         <tr>
                             <td> 姑</td>
-                            <td onclick="tt(this)">13781048976</td>
+                            <td   >13781048976</td>
                         </tr>
                     </table>
                 </div>
@@ -295,26 +310,86 @@
             <div class="row">
                 <div class="col-sm-8">
                     <table>
-                            <tr> <td>峰153</td><td onclick="tt(this)">15343933111</td></tr>
-                            <tr> <td>峰139</td><td onclick="tt(this)">13949714735</td></tr>
-                            <tr> <td>霞153</td><td onclick="tt(this)">15343930233</td></tr>
-                            <tr> <td>霞135</td><td onclick="tt(this)">13525605827</td></tr>
-                            <tr> <td>霞155</td><td onclick="tt(this)">15503936306</td></tr>
-                            <tr> <td>霞656</td><td onclick="tt(this)">15516637656</td></tr>
-                            <tr> <td>林林姥</td><td onclick="tt(this)">15516116708</td></tr>
-                            <tr> <td>丽139</td><td onclick="tt(this)">13938311000</td></tr>
-                            <tr> <td>丽189</td><td onclick="tt(this)">18939363639</td></tr>
-                            <tr> <td>兵139</td><td onclick="tt(this)">13903938123</td></tr>
-                            <tr> <td>兵133</td><td onclick="tt(this)">13333931021</td></tr>
-                            <tr> <td>栗致开</td><td onclick="tt(this)">18239302112</td></tr>
-                            <tr> <td>志开姥</td><td onclick="tt(this)">17839355990</td></tr>
-                            <tr> <td>志开姨</td><td onclick="tt(this)">15839339696</td></tr>
-                            <tr> <td>刘昭</td><td onclick="tt(this)">13938339977</td></tr>
-                            <tr> <td>莹185</td><td onclick="tt(this)">18512559698</td></tr>
-                            <tr> <td>莹151</td><td onclick="tt(this)">15150675864</td></tr>
-                            <tr> <td>我</td><td onclick="tt(this)">13513940239</td></tr>
-                            <tr> <td>我电信</td><td onclick="tt(this)">18039976370</td></tr>
-                            <tr> <td>峰180</td><td onclick="tt(this)">18039379998</td></tr>
+                        <tr>
+                            <td>峰153</td>
+                            <td   >15343933111</td>
+                        </tr>
+                        <tr>
+                            <td>峰139</td>
+                            <td   >13949714735</td>
+                        </tr>
+                        <tr>
+                            <td>霞153</td>
+                            <td   >15343930233</td>
+                        </tr>
+                        <tr>
+                            <td>霞135</td>
+                            <td   >13525605827</td>
+                        </tr>
+                        <tr>
+                            <td>霞155</td>
+                            <td   >15503936306</td>
+                        </tr>
+                        <tr>
+                            <td>霞656</td>
+                            <td   >15516637656</td>
+                        </tr>
+                        <tr>
+                            <td>林林姥</td>
+                            <td   >15516116708</td>
+                        </tr>
+                        <tr>
+                            <td>丽139</td>
+                            <td   >13938311000</td>
+                        </tr>
+                        <tr>
+                            <td>丽189</td>
+                            <td   >18939363639</td>
+                        </tr>
+                        <tr>
+                            <td>兵139</td>
+                            <td   >13903938123</td>
+                        </tr>
+                        <tr>
+                            <td>兵133</td>
+                            <td   >13333931021</td>
+                        </tr>
+                        <tr>
+                            <td>栗致开</td>
+                            <td   >18239302112</td>
+                        </tr>
+                        <tr>
+                            <td>志开姥</td>
+                            <td   >17839355990</td>
+                        </tr>
+                        <tr>
+                            <td>志开姨</td>
+                            <td   >15839339696</td>
+                        </tr>
+                        <tr>
+                            <td>刘昭</td>
+                            <td   >13938339977</td>
+                        </tr>
+                        <tr>
+                            <td>莹185</td>
+                            <td   >18512559698</td>
+                        </tr>
+                        <tr>
+                            <td>莹151</td>
+                            <td   >15150675864</td>
+                        </tr>
+                        <tr>
+                            <td>我</td>
+                            <td   >13513940239</td>
+                        </tr>
+                        <tr>
+                            <td>我电信</td>
+                            <td   >18039976370</td>
+                        </tr>
+                        <tr>
+                            <td>峰180</td>
+                            <td   >18039379998</td>
+                        </tr>
                     </table>
                 </div>
             </div>
@@ -322,58 +397,175 @@
         <div role="tabpanel" class="tab-pane" id="settings">
             <div class="row">
                 <div class="col-sm-8">
-                        <table>   
-                        <tr> <td>相梅</td><td onclick="tt(this)">13839266599</td></tr>
-                        <tr> <td>美玲姑</td><td onclick="tt(this)">13303932198</td></tr>
-                        <tr> <td>美玲姑</td><td onclick="tt(this)">15839371660</td></tr>
-                        <tr> <td>源爸</td><td onclick="tt(this)">18900689601</td></tr>
-                        <tr> <td>宁远</td><td onclick="tt(this)">15503939889</td></tr>
-                        <tr> <td>李林</td><td onclick="tt(this)">18339370237</td></tr>
-                        <tr> <td>赵雁</td><td onclick="tt(this)">15002823076</td></tr>
-                        <tr> <td>富臣</td><td onclick="tt(this)">13603438699</td></tr>
-                        <tr> <td>富臣</td><td onclick="tt(this)">13839365679</td></tr>
-                        <tr> <td>李坤</td><td onclick="tt(this)">13781357019</td></tr>
-                        <tr> <td>茹茹</td><td onclick="tt(this)">18368911424</td></tr>
-                        <tr> <td>茹茹</td><td onclick="tt(this)">15039340760</td></tr>
-                        <tr> <td>媛媛</td><td onclick="tt(this)">17715162692</td></tr>
-                        <tr> <td>香芝</td><td onclick="tt(this)">15839348699</td></tr>
-                        <tr> <td>姥姥</td><td onclick="tt(this)">15939387392</td></tr>
-                        <tr> <td>三婶</td><td onclick="tt(this)">13821744494</td></tr>
-                        <tr> <td>郭琪</td><td onclick="tt(this)">13032217896</td></tr>
-                        <tr> <td>翟悦</td><td onclick="tt(this)">15518518800</td></tr>
-                        <tr> <td>翟亮</td><td onclick="tt(this)">17603937996</td></tr>
-                        <tr> <td>美玲姨</td><td onclick="tt(this)">15539377764</td></tr>
-                        <tr> <td>香芝姨</td><td onclick="tt(this)">13939359662</td></tr>
-                        <tr> <td>爱霞姨</td><td onclick="tt(this)">13839359009</td></tr>
-                        <tr> <td>聂丽姨</td><td onclick="tt(this)">13839322994</td></tr>
-                        <tr> <td>粉玲姨</td><td onclick="tt(this)">15039311988</td></tr>
+                    <table>
+                        <tr>
+                            <td>相梅</td>
+                            <td   >13839266599</td>
+                        </tr>
+                        <tr>
+                            <td>美玲姑</td>
+                            <td   >13303932198</td>
+                        </tr>
+                        <tr>
+                            <td>美玲姑</td>
+                            <td   >15839371660</td>
+                        </tr>
+                        <tr>
+                            <td>源爸</td>
+                            <td   >18900689601</td>
+                        </tr>
+                        <tr>
+                            <td>宁远</td>
+                            <td   >15503939889</td>
+                        </tr>
+                        <tr>
+                            <td>李林</td>
+                            <td   >18339370237</td>
+                        </tr>
+                        <tr>
+                            <td>赵雁</td>
+                            <td   >15002823076</td>
+                        </tr>
+                        <tr>
+                            <td>富臣</td>
+                            <td   >13603438699</td>
+                        </tr>
+                        <tr>
+                            <td>富臣</td>
+                            <td   >13839365679</td>
+                        </tr>
+                        <tr>
+                            <td>李坤</td>
+                            <td   >13781357019</td>
+                        </tr>
+                        <tr>
+                            <td>茹茹</td>
+                            <td   >18368911424</td>
+                        </tr>
+                        <tr>
+                            <td>茹茹</td>
+                            <td   >15039340760</td>
+                        </tr>
+                        <tr>
+                            <td>媛媛</td>
+                            <td   >17715162692</td>
+                        </tr>
+                        <tr>
+                            <td>香芝</td>
+                            <td   >15839348699</td>
+                        </tr>
+                        <tr>
+                            <td>姥姥</td>
+                            <td   >15939387392</td>
+                        </tr>
+                        <tr>
+                            <td>三婶</td>
+                            <td   >13821744494</td>
+                        </tr>
+                        <tr>
+                            <td>郭琪</td>
+                            <td   >13032217896</td>
+                        </tr>
+                        <tr>
+                            <td>翟悦</td>
+                            <td   >15518518800</td>
+                        </tr>
+                        <tr>
+                            <td>翟亮</td>
+                            <td   >17603937996</td>
+                        </tr>
+                        <tr>
+                            <td>美玲姨</td>
+                            <td   >15539377764</td>
+                        </tr>
+                        <tr>
+                            <td>香芝姨</td>
+                            <td   >13939359662</td>
+                        </tr>
+                        <tr>
+                            <td>爱霞姨</td>
+                            <td   >13839359009</td>
+                        </tr>
+                        <tr>
+                            <td>聂丽姨</td>
+                            <td   >13839322994</td>
+                        </tr>
+                        <tr>
+                            <td>粉玲姨</td>
+                            <td   >15039311988</td>
+                        </tr>
                     </table>
                 </div>
             </div>
         </div>
         <div role="tabpanel" class="tab-pane" id="yanyan">
-                <div class="row">
-                    <div class="col-sm-8">
-                            <table>   
-                                    <tr> <td>岩185</td><td onclick="tt(this)">18538070902</td></tr>
-                                    <tr> <td>岩180</td><td onclick="tt(this)">18039975610</td></tr>
-                                    <tr> <td>岩妈</td><td onclick="tt(this)">13949733919</td></tr>
-                                    <tr> <td>岩妈</td><td onclick="tt(this)">18539381862</td></tr>
-                                    <tr> <td>岩弟</td><td onclick="tt(this)">18438601800</td></tr>
-                                    <tr> <td>岩爸</td><td onclick="tt(this)">13693936289</td></tr>
-                                    <tr> <td>岩爸</td><td onclick="tt(this)">15690738197</td></tr>
-                                    <tr> <td>白玉</td><td onclick="tt(this)">13080128679</td></tr>
-                                    <tr> <td>宝珍</td><td onclick="tt(this)">13283039572</td></tr>
-                                    <tr> <td>茹茹爸</td><td onclick="tt(this)">15083214823</td></tr>
-                                    <tr> <td>铁素华</td><td onclick="tt(this)">13525259990</td></tr>
-                                    <tr> <td>青利</td><td onclick="tt(this)">13525283878</td></tr>
-                                    <tr> <td>四舅</td><td onclick="tt(this)"> 18739354357</td></tr>
-                                    <tr> <td>孙飞</td><td onclick="tt(this)">15618397649</td></tr>
-                                    <tr> <td>灿灿</td><td onclick="tt(this)">15139328909</td></tr>
-                        </table>
-                    </div>
+            <div class="row">
+                <div class="col-sm-8">
+                    <table>
+                        <tr>
+                            <td>岩185</td>
+                            <td   >18538070902</td>
+                        </tr>
+                        <tr>
+                            <td>岩180</td>
+                            <td   >18039975610</td>
+                        </tr>
+                        <tr>
+                            <td>岩妈</td>
+                            <td   >13949733919</td>
+                        </tr>
+                        <tr>
+                            <td>岩妈</td>
+                            <td   >18539381862</td>
+                        </tr>
+                        <tr>
+                            <td>岩弟</td>
+                            <td   >18438601800</td>
+                        </tr>
+                        <tr>
+                            <td>岩爸</td>
+                            <td   >13693936289</td>
+                        </tr>
+                        <tr>
+                            <td>岩爸</td>
+                            <td   >15690738197</td>
+                        </tr>
+                        <tr>
+                            <td>白玉</td>
+                            <td   >13080128679</td>
+                        </tr>
+                        <tr>
+                            <td>宝珍</td>
+                            <td   >13283039572</td>
+                        </tr>
+                        <tr>
+                            <td>茹茹爸</td>
+                            <td   >15083214823</td>
+                        </tr>
+                        <tr>
+                            <td>铁素华</td>
+                            <td   >13525259990</td>
+                        </tr>
+                        <tr>
+                            <td>青利</td>
+                            <td   >13525283878</td>
+                        </tr>
+                        <tr>
+                            <td>四舅</td>
+                            <td   > 18739354357</td>
+                        </tr>
+                        <tr>
+                            <td>孙飞</td>
+                            <td   >15618397649</td>
+                        </tr>
+                        <tr>
+                            <td>灿灿</td>
+                            <td   >15139328909</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
+        </div>
     </div>
 </body>
 
