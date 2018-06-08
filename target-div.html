@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>target-div</title>
+    <title>分享页</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -42,10 +42,11 @@
     </script>
 </head>
 
-<body>
-    <div id="cccc" data-clipboard-text="bbbb">bbbb</div>
-    <button class="btn" onclick="javascript:test($('#123'))">Copy</button>
-    <input type="text" id="123" />
+<body style="margin: 10px">
+    上次复制的号码：
+    <div id="cccc" style="display:inline-block" data-clipboard-text="bbbb">还没复制</div>
+    <button class="btn" style="display: none" onclick="javascript:test($('#123'))">Copy</button>
+    <input type="text" id="123" style="display: none" />
 
     <!-- Nav tabs页签 -->
     <ul class="nav nav-tabs" role="tablist">
@@ -62,13 +63,17 @@
         <li role="presentation">
             <a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">老妈分享</a>
         </li>
+        <li role="presentation">
+                <a href="#yanyan" aria-controls="yanyan" role="tab" data-toggle="tab">岩岩</a>
+            </li>
+        
     </ul>
     <div class="tab-content">
         <!--active当前选中项-->
         <div role="tabpanel" class="tab-pane active" id="home">
             <div class="row">
                 <div class="col-sm-12">
-                    <table style="padding-left: 10px">
+                    <table>
                         <tr>
                             <td> 丽娟</td>
                             <td onclick="tt(this)">13525277514</td>
@@ -168,7 +173,7 @@
         <div role="tabpanel" class="tab-pane" id="profile">
             <div class="row">
                 <div class="col-sm-8">
-                    <table style="padding-left: 10px">
+                    <table>
                         <tr>
                             <td> 林林</td>
                             <td onclick="tt(this)">15050200563</td>
@@ -281,38 +286,6 @@
                             <td> 姑</td>
                             <td onclick="tt(this)">13781048976</td>
                         </tr>
-                        <tr>
-                            <td> 白玉</td>
-                            <td onclick="tt(this)">13080128679</td>
-                        </tr>
-                        <tr>
-                            <td> 宝珍</td>
-                            <td onclick="tt(this)">13283039572</td>
-                        </tr>
-                        <tr>
-                            <td> 茹茹爸</td>
-                            <td onclick="tt(this)">15083214823</td>
-                        </tr>
-                        <tr>
-                            <td> 铁素华</td>
-                            <td onclick="tt(this)">13525259990</td>
-                        </tr>
-                        <tr>
-                            <td> 青利</td>
-                            <td onclick="tt(this)">13525283878</td>
-                        </tr>
-                        <tr>
-                            <td> 四舅</td>
-                            <td onclick="tt(this)"> 18739354357</td>
-                        </tr>
-                        <tr>
-                            <td> 孙飞</td>
-                            <td onclick="tt(this)">15618397649</td>
-                        </tr>
-                        <tr>
-                            <td> 灿灿</td>
-                            <td onclick="tt(this)">15139328909</td>
-                        </tr>
                     </table>
                 </div>
 
@@ -321,34 +294,86 @@
         <div role="tabpanel" class="tab-pane" id="messages">
             <div class="row">
                 <div class="col-sm-8">
-                    <h3>Asp .net MVC介绍</h3>
-                    <p style="font-size:14px">ASP.NET MVC 4已经正式发布，并内置于Visual Studio 2012， 新版本ASP.NET MVC版本新增了手机模版、单页应用程序，Web API等模版，更新了一些 javascript
-                        库，其中示例页面也使用了jquery的AJAX登录， 并增加了OAuth认证/Entity Framework5的支持。同时也增强了对HTML5、AsyncController等的支持。</p>
-                    <p>
-                        <a href="#" class="btn btn-success" role="button">详细了解</a>
-                    </p>
-                </div>
-                <div class="col-sm-4">
-                    <img src="./img/1.jpg" class="img-thumbnail" alt="MVC" />
+                    <table>
+                            <tr> <td>峰153</td><td onclick="tt(this)">15343933111</td></tr>
+                            <tr> <td>峰139</td><td onclick="tt(this)">13949714735</td></tr>
+                            <tr> <td>霞153</td><td onclick="tt(this)">15343930233</td></tr>
+                            <tr> <td>霞135</td><td onclick="tt(this)">13525605827</td></tr>
+                            <tr> <td>霞155</td><td onclick="tt(this)">15503936306</td></tr>
+                            <tr> <td>霞656</td><td onclick="tt(this)">15516637656</td></tr>
+                            <tr> <td>林林姥</td><td onclick="tt(this)">15516116708</td></tr>
+                            <tr> <td>丽139</td><td onclick="tt(this)">13938311000</td></tr>
+                            <tr> <td>丽189</td><td onclick="tt(this)">18939363639</td></tr>
+                            <tr> <td>兵139</td><td onclick="tt(this)">13903938123</td></tr>
+                            <tr> <td>兵133</td><td onclick="tt(this)">13333931021</td></tr>
+                            <tr> <td>栗致开</td><td onclick="tt(this)">18239302112</td></tr>
+                            <tr> <td>志开姥</td><td onclick="tt(this)">17839355990</td></tr>
+                            <tr> <td>志开姨</td><td onclick="tt(this)">15839339696</td></tr>
+                            <tr> <td>刘昭</td><td onclick="tt(this)">13938339977</td></tr>
+                            <tr> <td>莹185</td><td onclick="tt(this)">18512559698</td></tr>
+                            <tr> <td>莹151</td><td onclick="tt(this)">15150675864</td></tr>
+                            <tr> <td>我</td><td onclick="tt(this)">13513940239</td></tr>
+                            <tr> <td>我电信</td><td onclick="tt(this)">18039976370</td></tr>
+                            <tr> <td>峰180</td><td onclick="tt(this)">18039379998</td></tr>
+                    </table>
                 </div>
             </div>
         </div>
         <div role="tabpanel" class="tab-pane" id="settings">
             <div class="row">
                 <div class="col-sm-8">
-                    <h3>Web GIS基础介绍</h3>
-                    <p style="font-size:14px">Web GIS是Internet技术应用于GIS开发的产物，是现代GIS技术的重要组成部分。常见的Web GIS开发软件有超擎图形。 是一个交互式的、分布式的、动态的地理信息系统，是由多个主机、多个数据库的无线终端，并由客户机与服务器（HTTP服务器及应用服务器）相连所组成的。
-                        GIS通过WWW功能得以扩展，真正成为一种大众使用的工具。 从WWW的任意一个节点，Internet用户可以浏览WebGIS站点中的空间数据、制作专题图，以及进行各种空间检索和空间分析，从而使GIS进入千家万户。
-                    </p>
-                    <p>
-                        <a href="#" class="btn btn-success" role="button">详细了解</a>
-                    </p>
-                </div>
-                <div class="col-sm-4">
-                    <img src="./img/3.jpg" class="img-thumbnail" alt="GIS基础" />
+                        <table>   
+                        <tr> <td>相梅</td><td onclick="tt(this)">13839266599</td></tr>
+                        <tr> <td>美玲姑</td><td onclick="tt(this)">13303932198</td></tr>
+                        <tr> <td>美玲姑</td><td onclick="tt(this)">15839371660</td></tr>
+                        <tr> <td>源爸</td><td onclick="tt(this)">18900689601</td></tr>
+                        <tr> <td>宁远</td><td onclick="tt(this)">15503939889</td></tr>
+                        <tr> <td>李林</td><td onclick="tt(this)">18339370237</td></tr>
+                        <tr> <td>赵雁</td><td onclick="tt(this)">15002823076</td></tr>
+                        <tr> <td>富臣</td><td onclick="tt(this)">13603438699</td></tr>
+                        <tr> <td>富臣</td><td onclick="tt(this)">13839365679</td></tr>
+                        <tr> <td>李坤</td><td onclick="tt(this)">13781357019</td></tr>
+                        <tr> <td>茹茹</td><td onclick="tt(this)">18368911424</td></tr>
+                        <tr> <td>茹茹</td><td onclick="tt(this)">15039340760</td></tr>
+                        <tr> <td>媛媛</td><td onclick="tt(this)">17715162692</td></tr>
+                        <tr> <td>香芝</td><td onclick="tt(this)">15839348699</td></tr>
+                        <tr> <td>姥姥</td><td onclick="tt(this)">15939387392</td></tr>
+                        <tr> <td>三婶</td><td onclick="tt(this)">13821744494</td></tr>
+                        <tr> <td>郭琪</td><td onclick="tt(this)">13032217896</td></tr>
+                        <tr> <td>翟悦</td><td onclick="tt(this)">15518518800</td></tr>
+                        <tr> <td>翟亮</td><td onclick="tt(this)">17603937996</td></tr>
+                        <tr> <td>美玲姨</td><td onclick="tt(this)">15539377764</td></tr>
+                        <tr> <td>香芝姨</td><td onclick="tt(this)">13939359662</td></tr>
+                        <tr> <td>爱霞姨</td><td onclick="tt(this)">13839359009</td></tr>
+                        <tr> <td>聂丽姨</td><td onclick="tt(this)">13839322994</td></tr>
+                        <tr> <td>粉玲姨</td><td onclick="tt(this)">15039311988</td></tr>
+                    </table>
                 </div>
             </div>
         </div>
+        <div role="tabpanel" class="tab-pane" id="yanyan">
+                <div class="row">
+                    <div class="col-sm-8">
+                            <table>   
+                                    <tr> <td>岩185</td><td onclick="tt(this)">18538070902</td></tr>
+                                    <tr> <td>岩180</td><td onclick="tt(this)">18039975610</td></tr>
+                                    <tr> <td>岩妈</td><td onclick="tt(this)">13949733919</td></tr>
+                                    <tr> <td>岩妈</td><td onclick="tt(this)">18539381862</td></tr>
+                                    <tr> <td>岩弟</td><td onclick="tt(this)">18438601800</td></tr>
+                                    <tr> <td>岩爸</td><td onclick="tt(this)">13693936289</td></tr>
+                                    <tr> <td>岩爸</td><td onclick="tt(this)">15690738197</td></tr>
+                                    <tr> <td>白玉</td><td onclick="tt(this)">13080128679</td></tr>
+                                    <tr> <td>宝珍</td><td onclick="tt(this)">13283039572</td></tr>
+                                    <tr> <td>茹茹爸</td><td onclick="tt(this)">15083214823</td></tr>
+                                    <tr> <td>铁素华</td><td onclick="tt(this)">13525259990</td></tr>
+                                    <tr> <td>青利</td><td onclick="tt(this)">13525283878</td></tr>
+                                    <tr> <td>四舅</td><td onclick="tt(this)"> 18739354357</td></tr>
+                                    <tr> <td>孙飞</td><td onclick="tt(this)">15618397649</td></tr>
+                                    <tr> <td>灿灿</td><td onclick="tt(this)">15139328909</td></tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
     </div>
 </body>
 
