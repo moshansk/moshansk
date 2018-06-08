@@ -14,6 +14,7 @@
     <script src="js/util.js"></script>
     <script>
         let preEle = undefined;
+        let prePreEle = undefined;
         function test(ele) {
             $('#cccc').text(`${ele[0].value}(${ele.parentElement.children[0].innerText})`);
             $('#cccc').attr('data-clipboard-text', ele[0].value);
@@ -23,8 +24,15 @@
             const copyText = ele.innerText;
             const td = ele.parentElement.children[0];
             if (preEle) {
-                preEle.style.color = '#000000';
-                preEle.parentElement.children[0].style.color = '#000000';
+                // if (prePreEle) {
+                //     if (ele.style.color !== 'rgb(255, 0, 0)') {
+                //         prePreEle.style.color = '#000000';
+                //         prePreEle.parentElement.children[0].style.color = '#000000';
+                //     }
+                // }
+                preEle.style.color = '#6A5ACD';
+                preEle.parentElement.children[0].style.color = '#6A5ACD';
+                prePreEle = preEle;
             }
             ele.style.color = "#FF0000"
             td.style.color = "#FF0000"
