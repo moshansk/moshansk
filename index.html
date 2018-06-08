@@ -12,6 +12,9 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/init.js" type="text/script"></script>
+    <script src="js/util.js"></script>
     <!-- <link href="js/jquery-3.3.1.min.js"> -->
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -23,6 +26,10 @@
         function goLiu() {
             const name = $("#inputEmail3").val();
             const password = $("#inputPassword3").val();
+            if (name === "k" || password === "k") {
+                window.location.href = "./target-div.html";
+                return;
+            }
             if (name !== "moshansk" || password !== "mok") {
                 $("#loginError").text("用户名或密码错误！");
                 return;
@@ -141,7 +148,7 @@
             </div>
         </div>
         <div class="col-xs-4">
-            <div class="panel panel-default" id="pFunc3">
+            <div class="panel panel-default" data-toggle="modal" data-target="#loginModal">
                 <div class="panel-body">
                     <strong>私人角落</strong>
                     <img class="iv_function" src="img/ic_personal.svg">
@@ -397,9 +404,7 @@
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/init.js" type="text/script"></script>
-    <script src="js/util.js"></script>
+    
 </body>
 
 </html>

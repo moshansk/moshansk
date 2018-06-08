@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>target-div</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/clipboard.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/init.js" type="text/script"></script>
+    <script src="js/util.js"></script>
+    <script>
+        let preEle = undefined;
+        function test(ele) {
+            $('#cccc').text(ele[0].value);
+            $('#cccc').attr('data-clipboard-text', ele[0].value);
+            $('#cccc').click();
+        }
+        function tt(ele) {
+            const copyText = ele.innerText;
+            ele.style.color = "#FF0000"
+            if (preEle) {
+                preEle.style.color = '#000000';
+            }
+            preEle = ele;
+            $('#cccc').text(copyText);
+            $('#cccc').attr('data-clipboard-text', copyText);
+            $('#cccc').click();
+        }
+        $(function (params) {
+            var clipboard = new ClipboardJS('#cccc');
+            clipboard.on('success', function (e) {
+                console.log(e);
+            });
+            clipboard.on('error', function (e) {
+                console.log(e);
+            });
+        })
+    </script>
+</head>
+
+<body>
+    <div id="cccc" data-clipboard-text="bbbb">bbbb</div>
+    <button class="btn" onclick="javascript:test($('#123'))">Copy</button>
+    <input type="text" id="123" />
+   
+    <!-- Nav tabs页签 -->
+    <ul class="nav nav-tabs" role="tablist">
+        <!--注意这里的#home与下面的div role="tabpanel" class="tab-pane active" id="home" 的id对应实现页签-->
+        <li role="presentation" class="active">
+            <a href="#home" aria-controls="home" role="tab" data-toggle="tab">孙凯评价</a>
+        </li>
+        <li role="presentation">
+            <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">孙凯分享</a>
+        </li>
+        <li role="presentation">
+            <a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">老妈评价</a>
+        </li>
+        <li role="presentation">
+            <a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">老妈分享</a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <!--active当前选中项-->
+        <div role="tabpanel" class="tab-pane active" id="home">
+            <div class="row">
+                <div class="col-sm-12">
+                        <table>
+                                <tr>
+                                    <td> 丽娟</td>
+                                    <td onclick="tt(this)">13525277514</td>
+                                </tr>
+                                <tr>
+                                    <td> 冉冉</td>
+                                    <td onclick="tt(this)">13030317613</td>
+                                </tr>
+                                <tr>
+                                    <td> 刘源妈</td>
+                                    <td onclick="tt(this)">18013959550</td>
+                                </tr>
+                                <tr>
+                                    <td> 秀娟姨</td>
+                                    <td onclick="tt(this)">15539392256</td>
+                                </tr>
+                                <tr>
+                                    <td> 姨</td>
+                                    <td onclick="tt(this)">13938329157</td>
+                                </tr>
+                                <tr>
+                                    <td> 杜菲</td>
+                                    <td onclick="tt(this)">15903993802</td>
+                                </tr>
+                                <tr>
+                                    <td> 龚海林</td>
+                                    <td onclick="tt(this)">13333605971</td>
+                                </tr>
+                                <tr>
+                                    <td> 仝超</td>
+                                    <td onclick="tt(this)">15838116255</td>
+                                </tr>
+                                <tr>
+                                    <td> 杨邵举</td>
+                                    <td onclick="tt(this)">15637190302</td>
+                                </tr>
+                                <tr>
+                                    <td> 胡亚彬</td>
+                                    <td onclick="tt(this)">17719991802</td>
+                                </tr>
+                                <tr>
+                                    <td> 华秀杰</td>
+                                    <td onclick="tt(this)">13592645270</td>
+                                </tr>
+                                <tr>
+                                    <td> 和孟光</td>
+                                    <td onclick="tt(this)">18569917997</td>
+                                </tr>
+                                <tr>
+                                    <td> 张光辉</td>
+                                    <td onclick="tt(this)">13938402159</td>
+                                </tr>
+                                <tr>
+                                    <td> 朱强</td>
+                                    <td onclick="tt(this)">18838080479</td>
+                                </tr>
+                                <tr>
+                                    <td> 姨夫</td>
+                                    <td onclick="tt(this)">13938315133</td>
+                                </tr>
+                                <tr>
+                                    <td> 138刘源</td>
+                                    <td onclick="tt(this)">13851666159</td>
+                                </tr>
+                                <tr>
+                                    <td> 186刘源</td>
+                                    <td onclick="tt(this)">18651605436</td>
+                                </tr>
+                                <tr>
+                                    <td> 丙茹186</td>
+                                    <td onclick="tt(this)">18618309175</td>
+                                </tr>
+                                <tr>
+                                    <td> 丙茹181</td>
+                                    <td onclick="tt(this)">18101020737</td>
+                                </tr>
+                                <tr>
+                                    <td> 爸爸</td>
+                                    <td onclick="tt(this)">13939350159</td>
+                                </tr>
+                                <tr>
+                                    <td> 奶奶</td>
+                                    <td onclick="tt(this)">13721715845</td>
+                                </tr>
+                                <tr>
+                                    <td> 二姐</td>
+                                    <td onclick="tt(this)">13718890649</td>
+                                </tr>
+                                <tr>
+                                    <td> 孙凯</td>
+                                    <td onclick="tt(this)">15378726052</td>
+                                </tr>
+                            </table>
+                </div>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="profile">
+            <div class="row">
+                <div class="col-sm-8">
+                    <h3>.Net基础介绍</h3>
+                    <p style="font-size:14px">.NET是 Microsoft XML Web services 平台。XML Web services 允许应用程序通过 Internet 进行通讯和共享数据，而不管所采用的是哪种操作 系统、设备或编程语言。Microsoft
+                        .NET 平台提供创建 XML Web services 并将这些服务集成在一起之所需。对个人用户的好处是无缝的、吸引人的体验。</p>
+                    <p>
+                        <a href="#" class="btn btn-success" role="button">详细了解</a>
+                    </p>
+                </div>
+                <div class="col-sm-4">
+                    <img src="./img/2.jpg" class="img-thumbnail" alt=".net" />
+                </div>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="messages">
+            <div class="row">
+                <div class="col-sm-8">
+                    <h3>Asp .net MVC介绍</h3>
+                    <p style="font-size:14px">ASP.NET MVC 4已经正式发布，并内置于Visual Studio 2012， 新版本ASP.NET MVC版本新增了手机模版、单页应用程序，Web API等模版，更新了一些 javascript
+                        库，其中示例页面也使用了jquery的AJAX登录， 并增加了OAuth认证/Entity Framework5的支持。同时也增强了对HTML5、AsyncController等的支持。</p>
+                    <p>
+                        <a href="#" class="btn btn-success" role="button">详细了解</a>
+                    </p>
+                </div>
+                <div class="col-sm-4">
+                    <img src="./img/1.jpg" class="img-thumbnail" alt="MVC" />
+                </div>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="settings">
+            <div class="row">
+                <div class="col-sm-8">
+                    <h3>Web GIS基础介绍</h3>
+                    <p style="font-size:14px">Web GIS是Internet技术应用于GIS开发的产物，是现代GIS技术的重要组成部分。常见的Web GIS开发软件有超擎图形。 是一个交互式的、分布式的、动态的地理信息系统，是由多个主机、多个数据库的无线终端，并由客户机与服务器（HTTP服务器及应用服务器）相连所组成的。
+                        GIS通过WWW功能得以扩展，真正成为一种大众使用的工具。 从WWW的任意一个节点，Internet用户可以浏览WebGIS站点中的空间数据、制作专题图，以及进行各种空间检索和空间分析，从而使GIS进入千家万户。
+                    </p>
+                    <p>
+                        <a href="#" class="btn btn-success" role="button">详细了解</a>
+                    </p>
+                </div>
+                <div class="col-sm-4">
+                    <img src="./img/3.jpg" class="img-thumbnail" alt="GIS基础" />
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
