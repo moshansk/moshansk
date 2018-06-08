@@ -35,6 +35,9 @@
             $('#cccc').click();
         }
         $(function (params) {
+            // $('tr td:last-child').click(function () {
+            //     tt(this);
+            // })
             var clipboard = new ClipboardJS('#cccc');
             clipboard.on('success', function (e) {
                 console.log(e);
@@ -88,7 +91,7 @@
         <div role="tabpanel" class="tab-pane active" id="home">
             <div class="row">
                 <div class="col-sm-12">
-                    <table>
+                    <table style="font-size: 20px">
                         <tr>
                             <td id="wo"> 丽娟</td>
                             <td   >13525277514</td>
