@@ -24,29 +24,34 @@
             const copyText = ele.innerText;
             const td = ele.parentElement.children[0];
             if (preEle) {
-                // if (prePreEle) {
-                //     if (ele.style.color !== 'rgb(255, 0, 0)') {
-                //         prePreEle.style.color = '#000000';
-                //         prePreEle.parentElement.children[0].style.color = '#000000';
-                //     }
-                // }
                 preEle.style.color = '#6A5ACD';
                 preEle.parentElement.children[0].style.color = '#6A5ACD';
                 prePreEle = preEle;
             }
             ele.style.color = "#FF0000"
             td.style.color = "#FF0000"
-            // td.style.cssText = "background-color:red;cursor:pointer"
             preEle = ele;
             $('#cccc').text(`${copyText}(${td.innerText})`);
             $('#cccc').attr('data-clipboard-text', copyText);
             $('#cccc').click();
+            // new Promise(function (resolve, reject) {
+            // window.localStorage.removeItem('userinfo');
+            let sk = window.localStorage["moshansk"];
+            let skJson = {};
+            if (!sk) {
+                skJson.date = (new Date()).toDateString()
+                skJson[copyText] = true;
+            } else {
+                skJson = JSON.parse(sk);
+                skJson[copyText] = true;
+            }
+            skJson.current = copyText;
+            sk = JSON.stringify(skJson);
+            window.localStorage["moshansk"] = sk;
+            // resolve(1);
+            // });
         }
         $(function (params) {
-            // $('tr td:last-child').click(function () {
-            //     tt(this);
-            // })
-            // $('table').css("font-size", "120%");
             var clipboard = new ClipboardJS('#cccc');
             clipboard.on('success', function (e) {
                 console.log(e);
@@ -65,6 +70,40 @@
             $('tr td:last-child').click(function () {
                 tt(this);
             })
+            // $("tr td:last-child").each((index, dom) => {
+            //     // if (sk[dom.innerText]) {
+            //     dom.style.color = '#6A5ACD';
+            //     dom.parentElement.children[0].style.color = '#6A5ACD';
+            //     // }
+            // });
+            // console.log(window.clipboardData.getData("Text"));
+            const name = new Date();
+            console.log(name.toDateString());
+            if (!window.localStorage) {
+                alert("浏览器不支持localstorage");
+                return false;
+            } else {
+                let sk = window.localStorage["moshansk"];
+                if (sk) {
+                    sk = JSON.parse(sk);
+                    if (sk.date !== (new Date()).toDateString()) {
+                        window.localStorage.removeItem('moshansk');
+                        return;
+                    }
+                    $("tr td:last-child").each((index, dom) => {
+                        if (sk[dom.innerText]) {
+                            if (sk.current === dom.innerText) {
+                                dom.style.color = "#FF0000"
+                                dom.parentElement.children[0].style.color = "#FF0000"
+                            } else {
+                                dom.style.color = '#6A5ACD';
+                                dom.parentElement.children[0].style.color = '#6A5ACD';
+                            }
+
+                        }
+                    });
+                }
+            }
         })
     </script>
 </head>
@@ -93,7 +132,6 @@
         <li role="presentation">
             <a href="#yanyan" aria-controls="yanyan" role="tab" data-toggle="tab">岩</a>
         </li>
-
     </ul>
     <div class="tab-content">
         <!--active当前选中项-->
