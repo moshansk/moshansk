@@ -22,7 +22,7 @@
         }
         function reStart() {
             window.localStorage.removeItem('moshansk');
-            window.location.reload();
+            window.location.href=`${window.location.href}?`+Math.random();
         }
         function tt(ele) {
             const copyText = ele.innerText;
