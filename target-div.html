@@ -22,15 +22,29 @@
         }
         function reStart() {
             window.localStorage.removeItem('moshansk');
-            window.location.href=`${window.location.href}?`+Math.random();
+            window.location.href = `${window.location.href}?` + Math.random();
         }
         function tt(ele) {
             const copyText = ele.innerText;
+            let sk = window.localStorage["moshansk"];
+            let skJson = {};
+            if (sk) {
+                skJson = JSON.parse(sk);
+            } else {
+                skJson.date = (new Date()).toDateString()
+            }
             const td = ele.parentElement.children[0];
             if (preEle) {
                 preEle.style.color = '#6A5ACD';
                 preEle.parentElement.children[0].style.color = '#6A5ACD';
                 prePreEle = preEle;
+            } else {
+                if (skJson.current) {
+                    $("tr td:last-child").filter(`:contains(${skJson.current})`).each(function (index,ele) {
+                        ele.style.color = '#6A5ACD';
+                        ele.parentElement.children[0].style.color = '#6A5ACD';
+                    });
+                }
             }
             ele.style.color = "#FF0000"
             td.style.color = "#FF0000"
@@ -38,22 +52,13 @@
             $('#cccc').text(`${copyText}(${td.innerText})`);
             $('#cccc').attr('data-clipboard-text', copyText);
             $('#cccc').click();
-            // new Promise(function (resolve, reject) {
-            // window.localStorage.removeItem('userinfo');
-            let sk = window.localStorage["moshansk"];
-            let skJson = {};
-            if (!sk) {
-                skJson.date = (new Date()).toDateString()
-                skJson[copyText] = true;
-            } else {
-                skJson = JSON.parse(sk);
-                skJson[copyText] = true;
-            }
+            skJson[copyText] = true;
             skJson.current = copyText;
             sk = JSON.stringify(skJson);
             window.localStorage["moshansk"] = sk;
-            // resolve(1);
-            // });
+            // new Promise(function (resolve, reject) {
+            // window.localStorage.removeItem('userinfo');
+      
         }
         $(function (params) {
             var clipboard = new ClipboardJS('#cccc');
@@ -113,7 +118,7 @@
 </head>
 
 <body style="margin: 10px">
-    <button   onclick="javascript:reStart()">删除今天进度</button>
+    <button onclick="javascript:reStart()">删除今天进度</button>
     复制的号码：
     <div id="cccc" style="display:inline-block" data-clipboard-text="bbbb">还没复制</div>
     <button class="btn" style="display: none" onclick="javascript:test($('#123'))">Copy</button>
