@@ -46,7 +46,7 @@
             const yanyan = $("#yanyan tr td:last-child.red").length + $("#yanyan tr td:last-child.blue").length;
             const yanyanAll = $("#yanyan tr td:last-child").length;
 
-            const res = `凯分(${home}/${homeAll});凯享(${profile}/${profileAll});妈分(${messages}/${messagesAll});妈享(${settings}/${settingsAll});岩岩(${yanyan}/${yanyanAll})`
+            const res = `凯分:${home}/${homeAll}凯享:${profile}/${profileAll}妈分:${messages}/${messagesAll}妈享:${settings}/${settingsAll}岩:${yanyan}/${yanyanAll}`
             $('#tj').text(res)
             //             home
             // profile
@@ -96,7 +96,7 @@
             setColorEle(ele, "red");
             setColorEle(td, "red");
             preEle = ele;
-            $('#cccc').text(`${copyText}(${td.innerText})`);
+            $('#cccc').text(`${copyText}-${td.innerText}`);
             $('#cccc').attr('data-clipboard-text', copyText);
             $('#cccc').click();
             skJson[copyText] = true;
@@ -161,7 +161,7 @@
 
 <body style="margin: 10px">
     <button onclick="javascript:reStart()" style="font-size:25%">重置</button>
-    <div id="cccc" style="display:inline-block" data-clipboard-text="bbbb" style="font-size:15%">还没复制</div>
+    <div id="cccc" style="display:inline-block" data-clipboard-text="bbbb" style="font-size:20%">还没复制</div>
     <button class="btn" style="display: none" onclick="javascript:test($('#123'))">Copy</button>
     <input type="text" id="123" style="display: none" />
     <div id="tj" style="float:right;font-size:25%" >统计</div>
