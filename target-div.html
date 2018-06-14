@@ -32,19 +32,19 @@
         let prePreEle = undefined;
         function tongJi() {
             const home = $("#home tr td:last-child.red").length + $("#home tr td:last-child.blue").length;
-            const homeAll = $("#home tr td").length;
+            const homeAll = $("#home tr td:last-child").length;
 
             const profile = $("#profile tr td:last-child.red").length + $("#profile tr td:last-child.blue").length;
-            const profileAll = $("#profile tr td").length;
+            const profileAll = $("#profile tr td:last-child").length;
 
             const messages = $("#messages tr td:last-child.red").length + $("#messages tr td:last-child.blue").length;
-            const messagesAll = $("#messages tr td").length;
+            const messagesAll = $("#messages tr td:last-child").length;
 
             const settings = $("#settings tr td:last-child.red").length + $("#settings tr td:last-child.blue").length;
-            const settingsAll = $("#settings tr td").length;
+            const settingsAll = $("#settings tr td:last-child").length;
 
             const yanyan = $("#yanyan tr td:last-child.red").length + $("#yanyan tr td:last-child.blue").length;
-            const yanyanAll = $("#yanyan tr td").length;
+            const yanyanAll = $("#yanyan tr td:last-child").length;
 
             const res = `凯分(${home}/${homeAll});凯享(${profile}/${profileAll});妈分(${messages}/${messagesAll});妈享(${settings}/${settingsAll});岩岩(${yanyan}/${yanyanAll})`
             $('#tj').text(res)
