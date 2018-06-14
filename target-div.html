@@ -12,9 +12,56 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/init.js" type="text/script"></script>
     <script src="js/util.js"></script>
+    <style type="text/css">
+        .red {
+            color: #FF0000;
+        }
+
+        .blue {
+            color: #6A5ACD;
+        }
+
+        .black {
+            color: black;
+        }
+
+        /*设置red类表示颜色为红色*/
+    </style>
     <script>
         let preEle = undefined;
         let prePreEle = undefined;
+        function tongJi() {
+            const home = $("#home tr td:last-child.red").length + $("#home tr td:last-child.blue").length;
+            const homeAll = $("#home tr td").length;
+
+            const profile = $("#profile tr td:last-child.red").length + $("#profile tr td:last-child.blue").length;
+            const profileAll = $("#profile tr td").length;
+
+            const messages = $("#messages tr td:last-child.red").length + $("#messages tr td:last-child.blue").length;
+            const messagesAll = $("#messages tr td").length;
+
+            const settings = $("#settings tr td:last-child.red").length + $("#settings tr td:last-child.blue").length;
+            const settingsAll = $("#settings tr td").length;
+
+            const yanyan = $("#yanyan tr td:last-child.red").length + $("#yanyan tr td:last-child.blue").length;
+            const yanyanAll = $("#yanyan tr td").length;
+
+            const res = `凯分(${home}/${homeAll});凯享(${profile}/${profileAll});妈分(${messages}/${messagesAll});妈享(${settings}/${settingsAll});岩岩(${yanyan}/${yanyanAll})`
+            $('#tj').text(res)
+            //             home
+            // profile
+            // messages
+            // settings
+            // yanyan
+        }
+        function setColorEle(ele, color) {
+            if (color === "red") {
+                ele.setAttribute("class", "red")
+            }
+            else {
+                ele.setAttribute("class", "blue")
+            }
+        }
         function test(ele) {
             $('#cccc').text(`${ele[0].value}(${ele.parentElement.children[0].innerText})`);
             $('#cccc').attr('data-clipboard-text', ele[0].value);
@@ -35,19 +82,19 @@
             }
             const td = ele.parentElement.children[0];
             if (preEle) {
-                preEle.style.color = '#6A5ACD';
-                preEle.parentElement.children[0].style.color = '#6A5ACD';
+                setColorEle(preEle);
+                setColorEle(preEle.parentElement.children[0]);
                 prePreEle = preEle;
             } else {
                 if (skJson.current) {
-                    $("tr td:last-child").filter(`:contains(${skJson.current})`).each(function (index,ele) {
-                        ele.style.color = '#6A5ACD';
-                        ele.parentElement.children[0].style.color = '#6A5ACD';
+                    $("tr td:last-child").filter(`:contains(${skJson.current})`).each(function (index, ele) {
+                        setColorEle(ele);
+                        setColorEle(ele.parentElement.children[0]);
                     });
                 }
             }
-            ele.style.color = "#FF0000"
-            td.style.color = "#FF0000"
+            setColorEle(ele, "red");
+            setColorEle(td, "red");
             preEle = ele;
             $('#cccc').text(`${copyText}(${td.innerText})`);
             $('#cccc').attr('data-clipboard-text', copyText);
@@ -58,7 +105,8 @@
             window.localStorage["moshansk"] = sk;
             // new Promise(function (resolve, reject) {
             // window.localStorage.removeItem('userinfo');
-      
+            tongJi();
+
         }
         $(function (params) {
             var clipboard = new ClipboardJS('#cccc');
@@ -79,13 +127,6 @@
             $('tr td:last-child').click(function () {
                 tt(this);
             })
-            // $("tr td:last-child").each((index, dom) => {
-            //     // if (sk[dom.innerText]) {
-            //     dom.style.color = '#6A5ACD';
-            //     dom.parentElement.children[0].style.color = '#6A5ACD';
-            //     // }
-            // });
-            // console.log(window.clipboardData.getData("Text"));
             const name = new Date();
             console.log(name.toDateString());
             if (!window.localStorage) {
@@ -102,27 +143,28 @@
                     $("tr td:last-child").each((index, dom) => {
                         if (sk[dom.innerText]) {
                             if (sk.current === dom.innerText) {
-                                dom.style.color = "#FF0000"
-                                dom.parentElement.children[0].style.color = "#FF0000"
+                                setColorEle(dom, "red");
+                                setColorEle(dom.parentElement.children[0], "red");
                             } else {
-                                dom.style.color = '#6A5ACD';
-                                dom.parentElement.children[0].style.color = '#6A5ACD';
+                                setColorEle(dom);
+                                setColorEle(dom.parentElement.children[0]);
                             }
 
                         }
                     });
                 }
             }
+            tongJi();
         })
     </script>
 </head>
 
-<body style="margin: 10px">
-    <button onclick="javascript:reStart()">删除今天进度</button>
-    复制的号码：
-    <div id="cccc" style="display:inline-block" data-clipboard-text="bbbb">还没复制</div>
+<body style="margin: 10px;font-size: 50%">
+    <button onclick="javascript:reStart()" style="font-size:25%">重置</button>
+    <div id="cccc" style="display:inline-block" data-clipboard-text="bbbb" style="font-size:25%">还没复制</div>
     <button class="btn" style="display: none" onclick="javascript:test($('#123'))">Copy</button>
     <input type="text" id="123" style="display: none" />
+    <div id="tj" style="float:right;font-size:25%" >统计</div>
     <!-- Nav tabs页签 -->
     <ul class="nav nav-tabs" role="tablist">
         <!--注意这里的#home与下面的div role="tabpanel" class="tab-pane active" id="home" 的id对应实现页签-->
