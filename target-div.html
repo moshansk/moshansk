@@ -145,6 +145,9 @@
                     $("tr td:last-child").each((index, dom) => {
                         if (sk[dom.innerText]) {
                             if (sk.current === dom.innerText) {
+                                $('#cccc').text(`${dom.innerText}-${dom.parentElement.children[0].innerText}`);
+                                $('#cccc').attr('data-clipboard-text', dom.innerText);
+                                $('#cccc').click();
                                 setColorEle(dom, "red");
                                 setColorEle(dom.parentElement.children[0], "red");
                             } else {
