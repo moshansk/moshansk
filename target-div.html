@@ -101,6 +101,7 @@
             $('#cccc').click();
             skJson[copyText] = true;
             skJson.current = copyText;
+            skJson.pageId = $('li.active>a').attr("href");
             sk = JSON.stringify(skJson);
             window.localStorage["moshansk"] = sk;
             // new Promise(function (resolve, reject) {
@@ -140,6 +141,7 @@
                         window.localStorage.removeItem('moshansk');
                         return;
                     }
+                    //设置颜色
                     $("tr td:last-child").each((index, dom) => {
                         if (sk[dom.innerText]) {
                             if (sk.current === dom.innerText) {
@@ -152,6 +154,9 @@
 
                         }
                     });
+                    if (sk.pageId && sk.pageId !== '#home') {
+                        $(`li>a[href='${sk.pageId}']`).tab('show')
+                    }
                 }
             }
             tongJi();
@@ -164,7 +169,7 @@
     <div id="cccc" style="display:inline-block" data-clipboard-text="bbbb" style="font-size:20%">还没复制</div>
     <button class="btn" style="display: none" onclick="javascript:test($('#123'))">Copy</button>
     <input type="text" id="123" style="display: none" />
-    <div id="tj" style="float:right;font-size:25%" >统计</div>
+    <div id="tj" style="float:right;font-size:25%">统计</div>
     <!-- Nav tabs页签 -->
     <ul class="nav nav-tabs" role="tablist">
         <!--注意这里的#home与下面的div role="tabpanel" class="tab-pane active" id="home" 的id对应实现页签-->
