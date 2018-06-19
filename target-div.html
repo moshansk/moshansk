@@ -137,7 +137,14 @@
                 let sk = window.localStorage["moshansk"];
                 if (sk) {
                     sk = JSON.parse(sk);
+                    if (sk.pageId && sk.pageId !== '#home') {
+                        $(`li>a[href='${sk.pageId}']`).tab('show')
+                    }
                     if (sk.date !== (new Date()).toDateString()) {
+                        if (sk.pageId && sk.pageId !== '#home') {
+                            window.localStorage["moshansk"] = JSON.parse({ date: (new Date()).toDateString(), pageId: sk.pageId });
+                            return;
+                        }
                         window.localStorage.removeItem('moshansk');
                         return;
                     }
@@ -157,9 +164,7 @@
 
                         }
                     });
-                    if (sk.pageId && sk.pageId !== '#home') {
-                        $(`li>a[href='${sk.pageId}']`).tab('show')
-                    }
+
                 }
             }
             tongJi();
