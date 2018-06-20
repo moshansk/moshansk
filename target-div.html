@@ -142,7 +142,7 @@
                     }
                     if (sk.date !== (new Date()).toDateString()) {
                         if (sk.pageId && sk.pageId !== '#home') {
-                            window.localStorage["moshansk"] = JSON.parse({ date: (new Date()).toDateString(), pageId: sk.pageId });
+                            window.localStorage["moshansk"] = JSON.stringify({ date: (new Date()).toDateString(), pageId: sk.pageId });
                             return;
                         }
                         window.localStorage.removeItem('moshansk');
